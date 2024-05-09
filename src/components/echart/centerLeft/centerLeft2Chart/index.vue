@@ -19,35 +19,35 @@ export default {
           }
         },
         {
-          name: '厦门市',
+          name: 'XX区',
           value: 9,
         },
         {
-          name: '漳州市',
+          name: 'XX区',
           value: 8,
         },
         {
-          name: '泉州市',
+          name: 'XX区',
           value: 7,
         },
         {
-          name: '三明市',
+          name: 'XX区',
           value: 6,
         },
         {
-          name: '莆田市',
+          name: 'XX区',
           value: 5,
         },
         {
-          name: '南平市',
+          name: 'XX区',
           value: 4,
         },
         {
-          name: '龙岩市',
+          name: 'XX区',
           value: 3,
         },
         {
-          name: '宁德市',
+          name: 'XX区',
           value: 2,
         }
       ]

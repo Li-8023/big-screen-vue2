@@ -13,7 +13,7 @@
     width: 100%;
     height: 100%;
     padding: 16px 16px 0 16px;
-    background-image: url("../assets/pageBg.png");
+    // background-image: url("../assets/pageBg.png");
     background-size: cover;
     background-position: center center;
   }
@@ -91,6 +91,14 @@
         display: inline-block;
         transform: skewX(45deg);
       }
+
+      .icon {
+        display: inline-block;
+        margin-left: 20px;
+        cursor: pointer;
+        vertical-align: middle;
+        
+      }
     }
 
     .react-left {
@@ -137,7 +145,15 @@
       .bottom-box {
         margin-top: 10px;
         display: grid;
-        grid-template-columns: repeat(2, 50%);
+        // grid-template-columns: repeat(3, 1fr);
+        grid-template-columns:40% 30% 30%;
+      }
+
+      .company-bottom-box{
+        margin-top: 10px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          // grid-template-columns: 40% 30% 30%;
       }
     }
   }

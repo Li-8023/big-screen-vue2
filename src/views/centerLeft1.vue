@@ -6,7 +6,7 @@
           <icon name="chart-bar" class="text-icon"></icon>
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2">任务通过率</span>
+          <span class="fs-xl text mx-2">考评指标</span>
           <dv-decoration-3 class="dv-dec-3" />
         </div>
       </div>
@@ -50,7 +50,7 @@ export default {
               fontSize: 24
             }
           },
-          text: '今日构建总量'
+          text: '今日参评企业'
         },
         {
           number: {
@@ -62,7 +62,7 @@ export default {
               fontSize: 24
             }
           },
-          text: '总共完成数量'
+          text: '当月参评企业'
         },
         {
           number: {
@@ -114,7 +114,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$box-width: 300px;
+$box-width: 500px;
 $box-height: 410px;
 
 #centerLeft1 {

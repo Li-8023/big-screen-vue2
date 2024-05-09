@@ -6,21 +6,22 @@
           <i class='bx bx-line-chart' ></i>
         </span>
         <div class="d-flex">
-          <span class="text mx-2">数据统计图</span>
+          <span class="text mx-2">税收情况</span>
+          <dv-decoration-6 style="width:200px;height:20px;" />  
         </div>
       </div>
       <div>
-        <BottomLeftChart />
+        <BottomLeftChartCom />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import BottomLeftChart from '@/components/echart/bottom/bottomLeftChart'
+import BottomLeftChartCom from '@/components/echart/companyChart/bottomLeftChart_Com'
 export default {
   components: {
-    BottomLeftChart
+    BottomLeftChartCom
   }
 }
 </script>

@@ -1,9 +1,8 @@
 <template>
   <div>
-    <!-- 年度开工率 -->
     <Echart
       :options="options"
-      id="bottomLeftChart"
+      id="bottomRightChart"
       height="480px"
       width="100%"
     ></Echart>
@@ -43,7 +42,12 @@ export default {
             }
           },
           legend: {
-            data: ["亩均综合得分", "环境&安全","总得分"],
+            data: [
+              "用电量",
+              "能耗",
+              "环保得分",
+              "安全得分",
+            ],
             textStyle: {
               color: "#B4B4B4"
             },
@@ -92,7 +96,7 @@ export default {
           ],
           series: [
             {
-              name: "总得分",
+              name: "环保得分",
               type: "line",
               smooth: true,
               showAllSymbol: true,
@@ -106,10 +110,27 @@ export default {
                   color: "#FB9AD1"
                 }
               },
-              data: newData.rateData
+              data: newData.env
+            },
+             {
+              name: "安全得分",
+              type: "line",
+              smooth: true,
+              showAllSymbol: true,
+              symbol: "emptyCircle",
+              symbolSize: 8,
+              yAxisIndex: 1,
+              itemStyle: {
+                normal: {
+                  color: "#F02FC2"
+                  // color: "#3477a0"
+                  // color: "#FB9AD1"
+                }
+              },
+              data: newData.safe
             },
             {
-              name: "环境&安全",
+              name: "用电量",
               type: "bar",
               barWidth: 10,
               itemStyle: {
@@ -121,10 +142,10 @@ export default {
                   ])
                 }
               },
-              data: newData.barData
+              data: newData.electric
             },
             {
-              name: "亩均综合得分",
+              name: "能耗",
               type: "bar",
               barGap: "-100%",
               barWidth: 10,
@@ -139,7 +160,7 @@ export default {
                 }
               },
               z: -12,
-              data: newData.lineData
+              data: newData.energy
             }
           ]
         }

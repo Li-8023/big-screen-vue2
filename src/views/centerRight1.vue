@@ -3,10 +3,12 @@
     <div class="bg-color-black">
       <div class="d-flex pt-2 pl-2">
         <span>
-          <icon name="chart-line" class="text-icon"></icon>
+          <i class='bx bx-line-chart' ></i>
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2">任务完成排行榜</span>
+          <!-- <span class=" text mx-2">企业得分排行榜</span> -->
+          <span class="text mx-2">企业得分排行榜</span>
+          
         </div>
       </div>
       <div class="d-flex jc-center body-box">
@@ -21,26 +23,27 @@ export default {
   data() {
     return {
       config: {
-        header: ['组件', '分支', '覆盖率'],
+        header: ['当月排名','名称', '得分', '排名变化'],
         data: [
-          ['组件1', 'dev-1', "<span  class='colorGrass'>↑75%</span>"],
-          ['组件2', 'dev-2', "<span  class='colorRed'>↓33%</span>"],
-          ['组件3', 'dev-3', "<span  class='colorGrass'>↑100%</span>"],
-          ['组件4', 'rea-1', "<span  class='colorGrass'>↑94%</span>"],
-          ['组件5', 'rea-2', "<span  class='colorGrass'>↑95%</span>"],
-          ['组件6', 'fix-2', "<span  class='colorGrass'>↑63%</span>"],
-          ['组件7', 'fix-4', "<span  class='colorGrass'>↑84%</span>"],
-          ['组件8', 'fix-7', "<span  class='colorRed'>↓46%</span>"],
-          ['组件9', 'dev-2', "<span  class='colorRed'>↓13%</span>"],
-          ['组件10', 'dev-9', "<span  class='colorGrass'>↑76%</span>"]
+          ['1','新余市金车精测电子科技有限公司', '106', "<span  class='colorRed'>↑1</span>"],
+          ['2','江西中邦电子科技有限公司', '105', "<span  class='colorGrass'>↓1</span>"],
+          ['3','江西盛泰精密光学有限公司', '103', "<span  class='colorRed'>↑1</span>"],
+          ['4','中联神农高科技有限公司', '102', "<span  class='colorRed'>↑1</span>"],
+          ['4','中联神农高科技有限公司', '102', "<span  class='colorRed'>↑1</span>"],
+          ['5','逊强贸易有限公司', '101', "<span  class='colorGrass'>↓4</span>"],
+          ['6','新余景润服饰有限公司', '99', "<span  class='colorRed'>↑6</span>"],
+          ['7','分宜县龙华金属回收有限公司第二门市部', '98', "<span  class='colorRed'>↑1</span>"],
+          ['8','新余市汇康食品有限公司', '96', "<span  class='colorGrass'>↓3</span>"],
+          ['9','云桉建筑', '96', "<span  class='colorGrass'>↓2</span>"],
+          ['10','江西肆海电子科技有限公司', '93', "<span  class='colorRed'>↑1</span>"]
         ],
         rowNum: 7, //表格行数
-        headerHeight: 35,
+        headerHeight: 20,
         headerBGC: '#0f1325', //表头
         oddRowBGC: '#0f1325', //奇数行
         evenRowBGC: '#171c33', //偶数行
-        index: true,
-        columnWidth: [50],
+        index: false,
+        columnWidth: [100, 300, 100, 100],
         align: ['center']
       }
     }
@@ -50,7 +53,7 @@ export default {
 
 <style lang="scss" scoped>
 $box-height: 410px;
-$box-width: 300px;
+$box-width: 800px;
 #centerRight1 {
   padding: 16px;
   padding-top: 20px;
@@ -68,9 +71,12 @@ $box-width: 300px;
     border-radius: 10px;
     overflow: hidden;
     .dv-scr-board {
-      width: 270px;
+      width: 650px;
       height: 340px;
     }
+  }
+  .d-flex{
+    margin-bottom: 10px;
   }
 }
 </style>

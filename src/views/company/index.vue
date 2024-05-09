@@ -8,7 +8,7 @@
           <div class="d-flex jc-center">
             <dv-decoration-8 class="dv-dec-8" :color="decorationColor" />
             <div class="title">
-              <span class="title-text">分宜工业园智慧大屏</span>
+              <span class="title-text">企业信息展示</span>
               <dv-decoration-6
                 class="dv-dec-6"
                 :reverse="true"
@@ -29,21 +29,27 @@
           <div class="d-flex aside-width">
             <div class="react-left ml-4 react-l-s">
               <span class="react-left"></span>
-              <span class="text">数据分析1</span>
+              <span class="text"></span>
             </div>
             <div class="react-left ml-3">
-              <span class="text sub-title" @click="gotoDetail">企业数据展示</span>
+              <span class="text"></span>
             </div>
           </div>
           <div class="d-flex aside-width">
             <div class="react-right bg-color-blue mr-3">
-              <span class="text fw-b">标题3</span>
+              <span class="text fw-b"></span>
             </div>
             <div class="react-right mr-4 react-l-s">
               <span class="react-after"></span>
               <span class="text"
-                >{{ dateYear }} {{ dateWeek }} {{ dateDay }}</span
-              >
+                >{{ dateYear }} {{ dateWeek }} {{ dateDay }}
+                <span class="icon" @click="gotoMain">
+                  <i
+                    class="bx bx-power-off"
+                    style="color: #ffffff; font-size: 26px"
+                  ></i>
+                </span>
+              </span>
             </div>
           </div>
         </div>
@@ -52,42 +58,28 @@
           <!-- 第三行数据 -->
           <div class="content-box">
             <div>
-              <dv-border-box-8>
+              <dv-border-box-6>
                 <centerLeft1 />
-              </dv-border-box-8>
+              </dv-border-box-6>
             </div>
-            <div>
-              <dv-border-box-8>
-                <centerLeft2 />
-              </dv-border-box-8>
-            </div>
-            <!-- 中间 -->
             <div>
               <center />
             </div>
-            <!-- 中间 -->
             <div>
-              <centerRight2 />
-            </div>
-            <div>
-              <dv-border-box-8>
-                <centerRight1 />
-              </dv-border-box-8>
+              <dv-border-box-6>
+                <topRight />
+              </dv-border-box-6>
             </div>
           </div>
 
           <!-- 第四行数据 -->
-          <div class="bottom-box">
+          <div class="company-bottom-box">
             <dv-border-box-13>
               <bottomLeft />
             </dv-border-box-13>
-            <dv-border-box-8>
-              <envRanking />
-            </dv-border-box-8>
-            <dv-border-box-8>
-              <safeRanking />
-            </dv-border-box-8>
-          
+            <dv-border-box-13>
+              <bottomRight />
+            </dv-border-box-13>
           </div>
         </div>
       </div>
@@ -96,19 +88,16 @@
 </template>
 
 <script>
-import drawMixin from "../utils/drawMixin";
-import { formatTime } from '../utils/index.js'
-import centerLeft1 from './centerLeft1'
-import centerRight1 from './centerRight1'
-import center from './center'
-import bottomLeft from './bottomLeft'
-import envRanking from './envRanking'
-import safeRanking from './safeRanking'
-
-
+import drawMixin from "../../utils/drawMixin";
+import { formatTime } from "../../utils/index.js";
+import centerLeft1 from "./centerLeft1";
+import bottomRight from "./bottomRight";
+import center from "./center";
+import bottomLeft from "./bottomLeft";
+import topRight from "./topRight";
 
 export default {
-  mixins: [ drawMixin ],
+  mixins: [drawMixin],
   data() {
     return {
       timing: null,
@@ -116,52 +105,44 @@ export default {
       dateDay: null,
       dateYear: null,
       dateWeek: null,
-      weekday: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
-      decorationColor: ['#568aea', '#000000']
-    }
+      weekday: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+      decorationColor: ["#568aea", "#000000"],
+    };
   },
   components: {
     centerLeft1,
-    // centerLeft2,
-    centerRight1,
-    // centerRight2,
+    bottomRight,
     center,
     bottomLeft,
-    envRanking,
-    safeRanking
-    // bottomRight,
+    topRight,
   },
   mounted() {
-    this.timeFn()
-    this.cancelLoading()
+    this.timeFn();
+    this.cancelLoading();
   },
-  beforeDestroy () {
-    clearInterval(this.timing)
+  beforeDestroy() {
+    clearInterval(this.timing);
   },
   methods: {
-    gotoDetail(){
-       this.$router.push('/detail');
+    gotoMain(){
+       this.$router.push('/');
     },
     timeFn() {
       this.timing = setInterval(() => {
-        this.dateDay = formatTime(new Date(), 'HH: mm: ss')
-        this.dateYear = formatTime(new Date(), 'yyyy-MM-dd')
-        this.dateWeek = this.weekday[new Date().getDay()]
-      }, 1000)
+        this.dateDay = formatTime(new Date(), "HH: mm: ss");
+        this.dateYear = formatTime(new Date(), "yyyy-MM-dd");
+        this.dateWeek = this.weekday[new Date().getDay()];
+      }, 1000);
     },
     cancelLoading() {
       setTimeout(() => {
-        this.loading = false
-      }, 500)
-    }
-  }
-}
+        this.loading = false;
+      }, 500);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/index.scss';
-
-.sub-title{
-  cursor: pointer;
-}
+@import "../../assets/scss/index.scss";
 </style>
