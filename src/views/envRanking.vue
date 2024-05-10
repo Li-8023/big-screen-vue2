@@ -3,6 +3,7 @@
     <div class="bg-color-black">
       <div class="d-flex pt-2 pl-2">
         <span>
+
           <i class='bx bx-line-chart' ></i>
         </span>
         <div class="d-flex">
@@ -55,13 +56,14 @@ export default {
         data: this.filteredData
       };
     },
-    filteredData(){
+     filteredData() {
+      if (!this.searchQuery) {
+        return this.originalData; 
+      }
       return this.originalData.filter(item => 
-        item[1].toLowerCase().includes(this.searchQuery.toLowerCase())
+        item[1] === this.searchQuery
       );
-
-      
-    }
+    },
   }
 }
 </script>

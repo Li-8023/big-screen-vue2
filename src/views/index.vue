@@ -29,7 +29,19 @@
           <div class="d-flex aside-width">
             <div class="react-left ml-4 react-l-s">
               <span class="react-left"></span>
-              <span class="text"><input type="text" v-model="searchQuery" placeholder="请输入公司名称"></span>
+              <span class="text">
+                <dv-border-box-8>
+                <!-- <input type="text" v-model="searchQuery" placeholder="请输入公司名称"> -->
+                <select v-model="searchQuery" class="custom-select" style="width:400px; height: 20px;">
+                  <option value="">请选择公司名称</option>
+                  <option value="江西盛泰精密光学有限公司">江西盛泰精密光学有限公司</option>
+                  <option value="新余市汇康食品有限公司">新余市汇康食品有限公司</option>
+                  <option value="中联神农高科技有限公司">中联神农高科技有限公司</option>
+                  <option value="新余景润服饰有限公司">新余景润服饰有限公司</option>
+                  <!-- <option v-for="item in companyOptions" :key="item.id" :value="item.name">{{ item.name }}</option> -->
+                </select>
+                </dv-border-box-8>
+              </span>
               
             </div>
             <div class="react-left ml-3">
@@ -53,9 +65,9 @@
           <!-- 第三行数据 -->
           <div class="content-box">
             <div>
-              <dv-border-box-8>
+              <dv-border-box-10>
                 <centerLeft1 />
-              </dv-border-box-8>
+              </dv-border-box-10>
             </div>
             <div>
               <dv-border-box-8>
@@ -72,7 +84,7 @@
             </div>
             <div>
               <dv-border-box-8>
-                <centerRight1 />
+                <centerRight1 :search-query="searchQuery"/>
               </dv-border-box-8>
             </div>
           </div>
@@ -86,7 +98,7 @@
               <envRanking :search-query="searchQuery"/>
             </dv-border-box-8>
             <dv-border-box-8>
-              <safeRanking />
+              <safeRanking :search-query="searchQuery"/>
             </dv-border-box-8>
           
           </div>
@@ -166,4 +178,33 @@ export default {
 .sub-title{
   cursor: pointer;
 }
+
+.custom-select:focus{
+  outline: none;
+}
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select{
+  background-color: #0f1325;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  border: 1px solid #0f1325;
+  box-shadow: none; /* Default no shadow */
+  
+}
+// .custom-select:focus {
+//   outline: none;
+//   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue glow effect */
+// }
+
+
+
+.select-selected {
+  background-color: DodgerBlue;
+}
+
 </style>
