@@ -34,7 +34,7 @@ $box-width: 100%;
   width: $box-width;
   border-radius: 5px;
   .bg-color-black {
-    height: $box-height - 35px;
+    height: $box-height - 35px; 
     border-radius: 10px;
   }
   .text {

@@ -97,6 +97,15 @@
         margin-left: 20px;
         cursor: pointer;
         vertical-align: middle;
+      }
+
+            .icon i {
+              color: white;
+              font-size: 26px;
+            }
+
+      .icon i:hover {
+        color: #ff0000;
         
       }
     }

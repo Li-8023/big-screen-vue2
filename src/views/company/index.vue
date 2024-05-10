@@ -46,7 +46,6 @@
                 <span class="icon" @click="gotoMain">
                   <i
                     class="bx bx-power-off"
-                    style="color: #ffffff; font-size: 26px"
                   ></i>
                 </span>
               </span>
@@ -74,12 +73,12 @@
 
           <!-- 第四行数据 -->
           <div class="company-bottom-box">
-            <dv-border-box-13>
+            <dv-border-box-8>
               <bottomLeft />
-            </dv-border-box-13>
-            <dv-border-box-13>
+            </dv-border-box-8>
+            <dv-border-box-8>
               <bottomRight />
-            </dv-border-box-13>
+            </dv-border-box-8>
           </div>
         </div>
       </div>
@@ -144,5 +143,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.bx-power-off{
+  padding: 10px;
+}
 @import "../../assets/scss/index.scss";
 </style>
