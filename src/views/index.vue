@@ -45,7 +45,19 @@
               
             </div>
             <div class="react-left ml-3">
-              <span class="text sub-title" @click="gotoDetail">企业数据展示</span>
+              <dv-decoration-4 :reverse="true" style="width:250px;height:5px;" />
+              <span v-if="!editMode" class="text sub-title" @click="toggleEditMode">
+              企业数据展示
+              
+              </span>
+                <input 
+                  v-else 
+                  type="text" 
+                  v-model="companyName" 
+                  @blur="toggleEditMode" 
+                  @keyup.enter="handleEnter" 
+                  class="input-field text" 
+                  placeholder="请输入公司名称">
             </div>
           </div>
           <div class="d-flex aside-width">
@@ -131,7 +143,9 @@ export default {
       dateWeek: null,
       weekday: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
       decorationColor: ['#568aea', '#000000'],
-      searchQuery:''
+      searchQuery:'',
+      editMode: false,
+      companyName:''
     }
   },
   components: {
@@ -153,9 +167,19 @@ export default {
     clearInterval(this.timing)
   },
   methods: {
-    gotoDetail(){
-       this.$router.push('/detail');
+     toggleEditMode() {
+      this.editMode = !this.editMode;  // Toggle between true and false
     },
+    handleEnter(event) {
+    if (event.key === "Enter") {
+      this.toggleEditMode();  // This will hide the text field
+      this.$router.push('/detail');
+      // You can add additional logic here to process the company name
+    }
+  },
+    // gotoDetail(){
+    //    this.$router.push('/detail');
+    // },
     timeFn() {
       this.timing = setInterval(() => {
         this.dateDay = formatTime(new Date(), 'HH: mm: ss')
@@ -196,15 +220,18 @@ export default {
   box-shadow: none; /* Default no shadow */
   
 }
-// .custom-select:focus {
-//   outline: none;
-//   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue glow effect */
-// }
-
-
 
 .select-selected {
   background-color: DodgerBlue;
+}
+
+.input-field {
+  background-color: #0f1325;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  border: 1px solid #0f1325;
+  box-shadow: none; /* Default no shadow */
 }
 
 </style>
