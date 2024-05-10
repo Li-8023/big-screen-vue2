@@ -3,7 +3,6 @@
     <div class="bg-color-black">
       <div class="d-flex pt-2 pl-2">
         <span>
-          <!-- <icon name="chart-line" class="text-icon"></icon> -->
           <i class='bx bx-line-chart' ></i>
         </span>
         <div class="d-flex">
@@ -12,7 +11,7 @@
         </div>
       </div>
       <div class="d-flex jc-center body-box">
-        <dv-scroll-board class="dv-scr-board" :config="config" />
+        <dv-scroll-board class="dv-scr-board" :config="scrollConfig" />
       </div>
     </div>
   </div>
@@ -20,11 +19,21 @@
 
 <script>
 export default {
+  props:['searchQuery'],
   data() {
     return {
       config: {
         header: ['当月排名','名称', '得分'],
-        data: [
+        rowNum: 7, //表格行数
+        headerHeight: 20,
+        headerBGC: '#0f1325', //表头
+        oddRowBGC: '#0f1325', //奇数行
+        evenRowBGC: '#171c33', //偶数行
+        index: false,
+        columnWidth: [130, 330, 100],
+        align: ['center']
+      },
+      originalData: [
           ['1','新余市金车精测电子科技有限公司', 13],
           ['2','江西中邦电子科技有限公司', 15],
           ['3','江西盛泰精密光学有限公司', 10],
@@ -37,15 +46,21 @@ export default {
           ['9','云桉建筑', 4],
           ['10','江西肆海电子科技有限公司', 3]
         ],
-        rowNum: 7, //表格行数
-        headerHeight: 20,
-        headerBGC: '#0f1325', //表头
-        oddRowBGC: '#0f1325', //奇数行
-        evenRowBGC: '#171c33', //偶数行
-        index: false,
-        columnWidth: [130, 330, 100],
-        align: ['center']
-      }
+    }
+  },
+  computed:{
+    scrollConfig(){
+      return {
+        ...this.config,
+        data: this.filteredData
+      };
+    },
+    filteredData(){
+      return this.originalData.filter(item => 
+        item[1].toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+
+      
     }
   }
 }

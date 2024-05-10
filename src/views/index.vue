@@ -29,7 +29,8 @@
           <div class="d-flex aside-width">
             <div class="react-left ml-4 react-l-s">
               <span class="react-left"></span>
-              <span class="text">数据分析1</span>
+              <span class="text"><input type="text" v-model="searchQuery" placeholder="请输入公司名称"></span>
+              
             </div>
             <div class="react-left ml-3">
               <span class="text sub-title" @click="gotoDetail">企业数据展示</span>
@@ -82,7 +83,7 @@
               <bottomLeft />
             </dv-border-box-13>
             <dv-border-box-8>
-              <envRanking />
+              <envRanking :search-query="searchQuery"/>
             </dv-border-box-8>
             <dv-border-box-8>
               <safeRanking />
@@ -117,7 +118,8 @@ export default {
       dateYear: null,
       dateWeek: null,
       weekday: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
-      decorationColor: ['#568aea', '#000000']
+      decorationColor: ['#568aea', '#000000'],
+      searchQuery:''
     }
   },
   components: {
