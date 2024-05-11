@@ -33,7 +33,7 @@
                 <dv-border-box-8>
                 <!-- <input type="text" v-model="searchQuery" placeholder="请输入公司名称"> -->
                 <select v-model="searchQuery" class="custom-select" style="width:400px; height: 20px;">
-                  <option value="">请选择公司名称</option>
+                  <option value="">请选择企业类型</option>
                   <option value="江西盛泰精密光学有限公司">江西盛泰精密光学有限公司</option>
                   <option value="新余市汇康食品有限公司">新余市汇康食品有限公司</option>
                   <option value="中联神农高科技有限公司">中联神农高科技有限公司</option>

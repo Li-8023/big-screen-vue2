@@ -41,12 +41,12 @@
             :colorObj="rate[1].colorData"
           />
         </div>
-        <div class="pond bg-color-black">
-          <span class="text mx-2 mb-1 pl-3">企业税务信用</span>
-          <dv-percent-pond
-            :config="pond"
-            style="width: 200px; height: 100px"
-          />
+        <div class="credit">
+          <!-- <span class="text mx-2 mb-1 pl-3">企业税务信用</span> -->
+          <span class="credit-letter">A</span>
+          <div class="credit-text">
+           <span class="text mx-2 mb-1 pl-3">企业税务信用</span> 
+          </div>
         </div>
       </div>
     </div>
@@ -235,12 +235,20 @@ export default {
           justify-content: center;
         }
       }
-      .pond {
-        margin-left: 10px;
+      .credit {
         width: 100%;
-        .dv-wa-le-po {
-          height: 120px;
-        }
+        
+        margin-top: 40px;
+      }
+      .credit-letter{
+        margin-left: 70px;
+        color: #ffd700; 
+        font-size: 110px; 
+        text-shadow: 3px 3px 5px rgba(89, 222, 59, 0.888); 
+      }
+      .credit-text{
+        margin-left: 40px;
+        margin-top: 10px;
       }
     }
   }
