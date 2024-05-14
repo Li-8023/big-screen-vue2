@@ -31,8 +31,20 @@
               <span class="react-left"></span>
               <span class="text"></span>
             </div>
-            <div class="react-left ml-3">
-              <span class="text"></span>
+             <div class="react-left ml-3">
+              <dv-decoration-4 :reverse="true" style="width:250px;height:5px;" />
+              <span v-if="!editMode" class="text sub-title" @click="toggleEditMode">
+              企业数据展示
+              
+              </span>
+                <input 
+                  v-else 
+                  type="text" 
+                  v-model="companyName" 
+                  @blur="toggleEditMode" 
+                  @keyup.enter="handleEnter" 
+                  class="input-field text" 
+                  placeholder="请输入公司名称">
             </div>
           </div>
           <div class="d-flex aside-width">
@@ -106,6 +118,8 @@ export default {
       dateWeek: null,
       weekday: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
       decorationColor: ["#568aea", "#000000"],
+      companyName:'',
+      editMode: false
     };
   },
   components: {
@@ -114,6 +128,7 @@ export default {
     center,
     bottomLeft,
     topRight,
+
   },
   mounted() {
     this.timeFn();
@@ -123,6 +138,16 @@ export default {
     clearInterval(this.timing);
   },
   methods: {
+    toggleEditMode() {
+      this.editMode = !this.editMode;  
+    },
+    handleEnter(event) {
+    if (event.key === "Enter") {
+      this.toggleEditMode();  
+      this.$router.push('/');
+
+    }
+  },
     gotoMain(){
        this.$router.push('/');
     },
@@ -147,4 +172,13 @@ export default {
   padding: 10px;
 }
 @import "../../assets/scss/index.scss";
+.input-field {
+  background-color: #0f1325;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  border: 1px solid #0f1325;
+  box-shadow: none; /* Default no shadow */
+}
+
 </style>

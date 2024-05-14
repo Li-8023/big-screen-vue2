@@ -6,7 +6,10 @@
         v-for="item in titleItem"
         :key="item.title"
       >
-        <p class="ml-3 colorBlue fw-b">{{ item.title }}</p>
+        <p class="ml-3 fw-b"  style="font-size: 18px; color: #459bcc;">
+          {{ item.title }}
+           <i class='bx bx-expand-alt bx-tada bx-rotate-90 expand-icon' style="font-size: 20px;" @click="showFormula(item)"></i>
+        </p>
         <div>
           <dv-digital-flop
             class="dv-dig-flop ml-1 mt-2 pl-3"
@@ -16,31 +19,15 @@
       </div>
     </div>
     <div class="down">
-      <div class="ranking bg-color-black">
-        <span>
-          <icon name="chart-pie" class="text-icon"></icon>
-        </span>
-        <dv-decoration-12 style="width: 200px; height: 200px" class="decoration"/>
-        <!-- <span class="text mx-2 mb-1 pl-3">年度负责人组件达标榜</span>
-        <dv-scroll-ranking-board class="dv-scr-rank-board mt-1" :config="ranking" /> -->
+      <div class="percent">
+        <div class="score">
+          <span class="credit-letter">95</span>
+          <div class="score-text">
+           <span class="text mx-2 mb-1 pl-3">企业总得分</span> 
+          </div>
+        </div>
       </div>
       <div class="percent">
-        <div class="item bg-color-black">
-          <span>今日任务通过率</span>
-          <CenterChart
-            :id="rate[0].id"
-            :tips="rate[0].tips"
-            :colorObj="rate[0].colorData"
-          />
-        </div>
-        <div class="item bg-color-black">
-          <span>今日任务达标率</span>
-          <CenterChart
-            :id="rate[1].id"
-            :tips="rate[1].tips"
-            :colorObj="rate[1].colorData"
-          />
-        </div>
         <div class="credit">
           <span class="credit-letter">A</span>
           <div class="credit-text">
@@ -49,18 +36,27 @@
         </div>
       </div>
     </div>
+    <!-- pop up window-->
+    <div v-if="showModal" class="modal">
+      <div class="modal-content">
+        <span class="close" @click="showModal = false">&times;</span>
+        <p>{{  selectedFormula }}</p>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
-import CenterChart from "@/components/echart/center/centerChartRate";
 
 export default {
   data() {
     return {
+      showModal: false,
+      selectedFormula: '',
       titleItem: [
         {
-          title: "企业亩均应税收入",
+          title: "亩均应税收入",
           number: {
             number: [120],
             toFixed: 1,
@@ -72,7 +68,7 @@ export default {
           },
         },
         {
-          title: "企业总得分",
+          title: "亩均税收",
           number: {
             number: [80],
             toFixed: 1,
@@ -84,7 +80,7 @@ export default {
           },
         },
         {
-          title: "企业安全生产得分",
+          title: "安全生产得分",
           number: {
             number: [14],
             toFixed: 1,
@@ -96,7 +92,7 @@ export default {
           },
         },
         {
-          title: "企业环境保护得分",
+          title: "环境保护得分",
           number: {
             number: [15],
             toFixed: 1,
@@ -108,7 +104,7 @@ export default {
           },
         },
         {
-          title: "企业当月用电量",
+          title: "加分",
           number: {
             number: [10],
             toFixed: 1,
@@ -120,7 +116,7 @@ export default {
           },
         },
         {
-          title: "企业当月能耗",
+          title: "减分",
           number: {
             number: [18],
             toFixed: 1,
@@ -132,49 +128,14 @@ export default {
           },
         },
       ],
-      pond: {
-        value: 66,
-        borderWidth: 5,
-        borderRadius: 10,
-        borderGap: 5,
-        localGradient: true,
-      },
-      // 通过率和达标率的组件复用数据
-      rate: [
-        {
-          id: "centerRate1",
-          tips: 60,
-          colorData: {
-            textStyle: "#3fc0fb",
-            series: {
-              color: ["#00bcd44a", "transparent"],
-              dataColor: {
-                normal: "#03a9f4",
-                shadowColor: "#97e2f5",
-              },
-            },
-          },
-        },
-        {
-          id: "centerRate2",
-          tips: 40,
-          colorData: {
-            textStyle: "#67e0e3",
-            series: {
-              color: ["#faf3a378", "transparent"],
-              dataColor: {
-                normal: "#ff9800",
-                shadowColor: "#fcebad",
-              },
-            },
-          },
-        },
-      ],
     };
   },
-  components: {
-    CenterChart,
-  },
+  methods:{
+    showFormula(item){
+      this.selectedFormula = `计算 ${item.title} 的公式是...`;
+      this.showModal = true;
+    }
+  }
 };
 </script>
 
@@ -237,19 +198,73 @@ export default {
       .credit {
         width: 100%;
         
-        margin-top: 40px;
+        margin-top: 120px;
       }
       .credit-letter{
-        margin-left: 70px;
+        margin-left: 50px;
         color: #ffd700; 
-        font-size: 110px; 
+        font-size: 180px; 
         text-shadow: 3px 3px 5px rgba(89, 222, 59, 0.888); 
       }
       .credit-text{
-        margin-left: 40px;
-        margin-top: 10px;
+        margin-left: 36px;
+        margin-top: 20px;
+        font-size: 20px;
+      }
+
+       .score {
+        width: 100%;
+        
+        margin-top: 120px;
+      }
+      .score-text{
+        margin-left: 70px;
+        margin-top: 20px;
+        font-size: 20px;
       }
     }
   }
 }
+
+.modal {
+  display: block; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: #0e101f;
+  margin: 20% auto; 
+  padding: 20px;
+  border: 1px solid #0e101f;
+  width: 80%; 
+  font-size: 30px;  
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.expand-icon:hover{
+  cursor: pointer;
+  color: white;
+}
+
 </style>

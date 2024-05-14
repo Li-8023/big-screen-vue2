@@ -44,12 +44,11 @@ export default {
           legend: {
             data: [
               "用电量",
-              "能耗",
-              "环保得分",
-              "安全得分",
+              "亩均税收",
             ],
             textStyle: {
-              color: "#B4B4B4"
+              color: "#B4B4B4",
+              fontSize: 20
             },
             top: "0%"
           },
@@ -63,11 +62,17 @@ export default {
             axisLine: {
               lineStyle: {
                 color: "#B4B4B4"
+                
               }
             },
             axisTick: {
               show: false
-            }
+            },
+             axisLabel: {
+              textStyle: {
+                fontSize: 16, 
+              },
+            },
           },
           yAxis: [
             {
@@ -79,8 +84,11 @@ export default {
               },
 
               axisLabel: {
-                formatter: "{value} "
-              }
+                formatter: "{value} ",
+                fontSize: 16, 
+              },
+              
+            
             },
             {
               splitLine: { show: false },
@@ -96,7 +104,7 @@ export default {
           ],
           series: [
             {
-              name: "环保得分",
+              name: "用电量",
               type: "line",
               smooth: true,
               showAllSymbol: true,
@@ -113,7 +121,7 @@ export default {
               data: newData.env
             },
              {
-              name: "安全得分",
+              name: "亩均税收",
               type: "line",
               smooth: true,
               showAllSymbol: true,
@@ -123,45 +131,11 @@ export default {
               itemStyle: {
                 normal: {
                   color: "#F02FC2"
-                  // color: "#3477a0"
-                  // color: "#FB9AD1"
+                  
                 }
               },
               data: newData.safe
             },
-            {
-              name: "用电量",
-              type: "bar",
-              barWidth: 10,
-              itemStyle: {
-                normal: {
-                  barBorderRadius: 5,
-                  color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                    { offset: 0, color: "#956FD4" },
-                    { offset: 1, color: "#3EACE5" }
-                  ])
-                }
-              },
-              data: newData.electric
-            },
-            {
-              name: "能耗",
-              type: "bar",
-              barGap: "-100%",
-              barWidth: 10,
-              itemStyle: {
-                normal: {
-                  barBorderRadius: 5,
-                  color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                    { offset: 0, color: "rgba(156,107,211,0.8)" },
-                    { offset: 0.2, color: "rgba(156,107,211,0.5)" },
-                    { offset: 1, color: "rgba(156,107,211,0.2)" }
-                  ])
-                }
-              },
-              z: -12,
-              data: newData.energy
-            }
           ]
         }
       },

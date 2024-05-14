@@ -62,7 +62,7 @@
           </div>
           <div class="d-flex aside-width">
             <div class="react-right bg-color-blue mr-3">
-              <span class="text fw-b">标题3</span>
+              <span class="text fw-b"></span>
             </div>
             <div class="react-right mr-4 react-l-s">
               <span class="react-after"></span>
@@ -76,9 +76,9 @@
         <div class="body-box">
           <div class="left-part">
             <div class="left">
-              <dv-border-box-10>
+              <dv-border-box-13>
                 <centerLeft1 />
-              </dv-border-box-10>
+              </dv-border-box-13>
             </div>
             
             <div class="right">
@@ -130,14 +130,9 @@ export default {
   },
   components: {
     centerLeft1,
-    // centerLeft2,
     centerRight1,
-    // centerRight2,
     center,
     bottomLeft,
-    // envRanking,
-    // safeRanking
-    // bottomRight,
   },
   mounted() {
     this.timeFn()
@@ -148,18 +143,15 @@ export default {
   },
   methods: {
      toggleEditMode() {
-      this.editMode = !this.editMode;  // Toggle between true and false
+      this.editMode = !this.editMode; 
     },
     handleEnter(event) {
     if (event.key === "Enter") {
-      this.toggleEditMode();  // This will hide the text field
+      this.toggleEditMode();  
       this.$router.push('/detail');
-      // You can add additional logic here to process the company name
+     
     }
   },
-    // gotoDetail(){
-    //    this.$router.push('/detail');
-    // },
     timeFn() {
       this.timing = setInterval(() => {
         this.dateDay = formatTime(new Date(), 'HH: mm: ss')

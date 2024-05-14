@@ -42,14 +42,11 @@ export default {
           },
           legend: {
             data: [
-              "企业所得税（万元）",
-              "消费税（万元）",
-              "增值税（万元）",
-              "营业税（万元）",
-              "个人所得税（万元）",
+              "亩均应税收入（万元）",
             ],
-            textStyle: {
+           textStyle: {
               color: "#B4B4B4",
+              fontSize: 20,
             },
             top: "0%",
           },
@@ -62,43 +59,28 @@ export default {
           xAxis: {
             type: "category",
             boundaryGap: false,
-
             data: newData.category,
+            axisLabel: {
+              textStyle: {
+                fontSize: 16, 
+              },
+            },
           },
           yAxis: {
             type: "value",
+            axisLabel: {
+              textStyle: {
+                fontSize: 16, 
+              },
+            },
           },
           series: [
             {
-              name: "企业所得税（万元）",
+              name: "亩均应税收入（万元）",
               type: "line",
               stack: "Total",
               data: newData.total,
-            },
-            {
-              name: "消费税（万元）",
-              type: "line",
-              stack: "Total",
-              data: newData.consume,
-            },
-            {
-              name: "增值税（万元）",
-              type: "line",
-              stack: "Total",
-              data: newData.added,
-            },
-            {
-              name: "营业税（万元）",
-              type: "line",
-              stack: "Total",
-              data: newData.business,
-            },
-            {
-              name: "个人所得税（万元）",
-              type: "line",
-              stack: "Total",
-              data: newData.personal,
-            },
+            }
           ],
         };
       },
