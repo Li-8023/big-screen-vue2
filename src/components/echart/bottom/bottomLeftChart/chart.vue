@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import Echart from '@/common/echart'
+import Echart from "@/common/echart";
 export default {
-  data () {
+  data() {
     return {
       options: {},
     };
@@ -24,12 +24,12 @@ export default {
   props: {
     cdata: {
       type: Object,
-      default: () => ({})
+      default: () => ({}),
     },
   },
   watch: {
     cdata: {
-      handler (newData) {
+      handler(newData) {
         this.options = {
           tooltip: {
             trigger: "axis",
@@ -38,57 +38,66 @@ export default {
               type: "shadow",
               label: {
                 show: true,
-                backgroundColor: "#7B7DDC"
-              }
-            }
+                backgroundColor: "#7B7DDC",
+              },
+            },
           },
           legend: {
-            data: ["园区总税收", "总应税收入","规上企业数"],
+            data: ["园区总税收", "总应税收入", "规上企业数"],
             textStyle: {
-              color: "#B4B4B4"
+              color: "#B4B4B4",
+              fontSize: 20,
             },
-            top: "0%"
+            top: "0%",
           },
           grid: {
             x: "8%",
             width: "88%",
-            y: "4%"
+            y: "4%",
           },
           xAxis: {
             data: newData.category,
             axisLine: {
               lineStyle: {
-                color: "#B4B4B4"
-              }
+                color: "#B4B4B4",
+              },
             },
             axisTick: {
-              show: false
-            }
+              show: false,
+            },
+            axisLabel: {
+              textStyle: {
+                fontSize: 16, 
+              },
+            },
           },
           yAxis: [
             {
               splitLine: { show: false },
               axisLine: {
                 lineStyle: {
-                  color: "#B4B4B4"
-                }
+                  color: "#B4B4B4",
+                },
               },
 
               axisLabel: {
-                formatter: "{value} "
-              }
+                formatter: "{value} ",
+              },
             },
             {
               splitLine: { show: false },
               axisLine: {
                 lineStyle: {
-                  color: "#B4B4B4"
-                }
+                  color: "#B4B4B4",
+                },
               },
               axisLabel: {
-                formatter: "{value} "
-              }
-            }
+                formatter: "{value} ",
+                textStyle: {
+                  fontSize: 16, 
+                },
+              },
+            },
           ],
           series: [
             {
@@ -101,12 +110,10 @@ export default {
               yAxisIndex: 1,
               itemStyle: {
                 normal: {
-                  // color: "#F02FC2"
-                  // color: "#3477a0"
-                  color: "#FB9AD1"
-                }
+                  color: "#FB9AD1",
+                },
               },
-              data: newData.rateData
+              data: newData.rateData,
             },
             {
               name: "总应税收入",
@@ -118,12 +125,10 @@ export default {
               yAxisIndex: 1,
               itemStyle: {
                 normal: {
-                  // color: "#F02FC2"
-                  color: "#3477a0"
-                  // color: "#FB9AD1"
-                }
+                  color: "#3477a0",
+                },
               },
-              data: newData.barData
+              data: newData.barData,
             },
             {
               name: "园区总税收",
@@ -135,52 +140,17 @@ export default {
               yAxisIndex: 1,
               itemStyle: {
                 normal: {
-                  color: "#F02FC2"
-                  // color: "#3477a0"
-                  // color: "#FB9AD1"
-                }
+                  color: "#F02FC2",
+                },
               },
-              data: newData.lineData
+              data: newData.lineData,
             },
-            // {
-            //   name: "环境&安全",
-            //   type: "bar",
-            //   barWidth: 10,
-            //   itemStyle: {
-            //     normal: {
-            //       barBorderRadius: 5,
-            //       color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            //         { offset: 0, color: "#956FD4" },
-            //         { offset: 1, color: "#3EACE5" }
-            //       ])
-            //     }
-            //   },
-            //   data: newData.barData
-            // },
-            // {
-            //   name: "亩均综合得分",
-            //   type: "bar",
-            //   barGap: "-100%",
-            //   barWidth: 10,
-            //   itemStyle: {
-            //     normal: {
-            //       barBorderRadius: 5,
-            //       color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            //         { offset: 0, color: "rgba(156,107,211,0.8)" },
-            //         { offset: 0.2, color: "rgba(156,107,211,0.5)" },
-            //         { offset: 1, color: "rgba(156,107,211,0.2)" }
-            //       ])
-            //     }
-            //   },
-            //   z: -12,
-            //   data: newData.lineData
-            // }
-          ]
-        }
+          ],
+        };
       },
       immediate: true,
-      deep: true
+      deep: true,
     },
   },
-}
+};
 </script>

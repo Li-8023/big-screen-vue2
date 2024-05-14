@@ -114,8 +114,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$box-width: 500px;
-$box-height: 410px;
+$box-width: 550px;
+$box-height: 430px;
 
 #centerLeft1 {
   padding: 16px;

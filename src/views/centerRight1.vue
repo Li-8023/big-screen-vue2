@@ -3,12 +3,12 @@
     <div class="bg-color-black">
       <div class="d-flex pt-2 pl-2">
         <span>
-          <i class='bx bx-line-chart' style="font-size: 20px;"></i>
+           <i class='bx bx-expand-alt bx-tada bx-rotate-90 expand-icon' style="font-size: 20px;"></i>
         </span>
         <div class="d-flex">
           <span class="text mx-2" style="font-size: 20px;">企业得分排行榜</span>
-          
         </div>
+       
       </div>
       <div class="d-flex jc-center body-box">
         <dv-scroll-board class="dv-scr-board" :config="scrollConfig" />
@@ -102,6 +102,9 @@ $box-width: 760px;
   }
   .d-flex{
     margin-bottom: 10px;
+  }
+  .expand-icon {
+    cursor: pointer;
   }
 }
 </style>

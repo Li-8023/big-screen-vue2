@@ -6,7 +6,7 @@
         v-for="item in titleItem"
         :key="item.title"
       >
-        <p class="ml-3 colorBlue fw-b">{{ item.title }}</p>
+        <p class="ml-3 fw-b" style="font-size: 18px; color: #459bcc;">{{ item.title }}</p>
         <div>
           <dv-digital-flop
             class="dv-dig-flop ml-1 mt-2 pl-3"
