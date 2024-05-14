@@ -74,46 +74,29 @@
         </div>
 
         <div class="body-box">
-          <!-- 第三行数据 -->
-          <div class="content-box">
-            <div>
+          <div class="left-part">
+            <div class="left">
               <dv-border-box-10>
                 <centerLeft1 />
               </dv-border-box-10>
             </div>
-            <div>
-              <dv-border-box-8>
-                <centerLeft2 />
-              </dv-border-box-8>
-            </div>
-            <!-- 中间 -->
-            <div>
+            
+            <div class="right">
               <center />
             </div>
-            <!-- 中间 -->
-            <div>
-              <centerRight2 />
-            </div>
-            <div>
-              <dv-border-box-8>
-                <centerRight1 :search-query="searchQuery"/>
-              </dv-border-box-8>
+            <div class="bottom">
+               <dv-border-box-13>
+              <bottomLeft />
+            </dv-border-box-13>
             </div>
           </div>
 
-          <!-- 第四行数据 -->
-          <div class="bottom-box">
-            <dv-border-box-13>
-              <bottomLeft />
-            </dv-border-box-13>
-            <dv-border-box-8>
-              <envRanking :search-query="searchQuery"/>
-            </dv-border-box-8>
-            <dv-border-box-8>
-              <safeRanking :search-query="searchQuery"/>
-            </dv-border-box-8>
-          
+          <div class="right-part">     
+              <dv-border-box-8>
+                <centerRight1 :search-query="searchQuery"/>
+              </dv-border-box-8>
           </div>
+          
         </div>
       </div>
     </div>
@@ -127,9 +110,6 @@ import centerLeft1 from './centerLeft1'
 import centerRight1 from './centerRight1'
 import center from './center'
 import bottomLeft from './bottomLeft'
-import envRanking from './envRanking'
-import safeRanking from './safeRanking'
-
 
 
 export default {
@@ -155,8 +135,8 @@ export default {
     // centerRight2,
     center,
     bottomLeft,
-    envRanking,
-    safeRanking
+    // envRanking,
+    // safeRanking
     // bottomRight,
   },
   mounted() {
@@ -197,7 +177,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/index.scss';
+@import '../assets/scss/page1.scss';
 
 .sub-title{
   cursor: pointer;

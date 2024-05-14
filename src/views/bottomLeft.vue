@@ -3,10 +3,10 @@
     <div class="bg-color-black">
       <div class="d-flex pt-2 pl-2">
         <span>
-          <i class='bx bx-line-chart' ></i>
+          <i class='bx bx-line-chart' style="font-size: 20px;"></i>
         </span>
         <div class="d-flex">
-          <span class="text mx-2">数据统计图</span>
+          <span class="text mx-2" style="font-size: 20px;">数据统计图</span>
         </div>
       </div>
       <div>

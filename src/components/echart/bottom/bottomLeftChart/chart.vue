@@ -43,7 +43,7 @@ export default {
             }
           },
           legend: {
-            data: ["亩均综合得分", "环境&安全","总得分"],
+            data: ["园区总税收", "总应税收入","规上企业数"],
             textStyle: {
               color: "#B4B4B4"
             },
@@ -92,7 +92,7 @@ export default {
           ],
           series: [
             {
-              name: "总得分",
+              name: "规上企业数",
               type: "line",
               smooth: true,
               showAllSymbol: true,
@@ -109,38 +109,72 @@ export default {
               data: newData.rateData
             },
             {
-              name: "环境&安全",
-              type: "bar",
-              barWidth: 10,
+              name: "总应税收入",
+              type: "line",
+              smooth: true,
+              showAllSymbol: true,
+              symbol: "emptyCircle",
+              symbolSize: 8,
+              yAxisIndex: 1,
               itemStyle: {
                 normal: {
-                  barBorderRadius: 5,
-                  color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                    { offset: 0, color: "#956FD4" },
-                    { offset: 1, color: "#3EACE5" }
-                  ])
+                  // color: "#F02FC2"
+                  color: "#3477a0"
+                  // color: "#FB9AD1"
                 }
               },
               data: newData.barData
             },
             {
-              name: "亩均综合得分",
-              type: "bar",
-              barGap: "-100%",
-              barWidth: 10,
+              name: "园区总税收",
+              type: "line",
+              smooth: true,
+              showAllSymbol: true,
+              symbol: "emptyCircle",
+              symbolSize: 8,
+              yAxisIndex: 1,
               itemStyle: {
                 normal: {
-                  barBorderRadius: 5,
-                  color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                    { offset: 0, color: "rgba(156,107,211,0.8)" },
-                    { offset: 0.2, color: "rgba(156,107,211,0.5)" },
-                    { offset: 1, color: "rgba(156,107,211,0.2)" }
-                  ])
+                  color: "#F02FC2"
+                  // color: "#3477a0"
+                  // color: "#FB9AD1"
                 }
               },
-              z: -12,
               data: newData.lineData
-            }
+            },
+            // {
+            //   name: "环境&安全",
+            //   type: "bar",
+            //   barWidth: 10,
+            //   itemStyle: {
+            //     normal: {
+            //       barBorderRadius: 5,
+            //       color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            //         { offset: 0, color: "#956FD4" },
+            //         { offset: 1, color: "#3EACE5" }
+            //       ])
+            //     }
+            //   },
+            //   data: newData.barData
+            // },
+            // {
+            //   name: "亩均综合得分",
+            //   type: "bar",
+            //   barGap: "-100%",
+            //   barWidth: 10,
+            //   itemStyle: {
+            //     normal: {
+            //       barBorderRadius: 5,
+            //       color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            //         { offset: 0, color: "rgba(156,107,211,0.8)" },
+            //         { offset: 0.2, color: "rgba(156,107,211,0.5)" },
+            //         { offset: 1, color: "rgba(156,107,211,0.2)" }
+            //       ])
+            //     }
+            //   },
+            //   z: -12,
+            //   data: newData.lineData
+            // }
           ]
         }
       },

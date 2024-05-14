@@ -3,11 +3,10 @@
     <div class="bg-color-black">
       <div class="d-flex pt-2 pl-2">
         <span>
-          <i class='bx bx-line-chart' ></i>
+          <i class='bx bx-line-chart' style="font-size: 20px;"></i>
         </span>
         <div class="d-flex">
-          <!-- <span class=" text mx-2">企业得分排行榜</span> -->
-          <span class="text mx-2">企业得分排行榜</span>
+          <span class="text mx-2" style="font-size: 20px;">企业得分排行榜</span>
           
         </div>
       </div>
@@ -24,8 +23,8 @@ export default {
   data() {
     return {
       config: {
-        header: ['当月排名','名称', '得分', '排名变化'],
-        rowNum: 7, //表格行数
+        header: ['当月排名','名称', '得分', '评价类别'],
+        rowNum: 16, //表格行数
         headerHeight: 20,
         headerBGC: '#0f1325', //表头
         oddRowBGC: '#0f1325', //奇数行
@@ -35,17 +34,26 @@ export default {
         align: ['center']
       },
        originalData: [
-          ['1','新余市金车精测电子科技有限公司', '106', "<span  class='colorRed'>↑1</span>"],
-          ['2','江西中邦电子科技有限公司', '105', "<span  class='colorGrass'>↓1</span>"],
-          ['3','江西盛泰精密光学有限公司', '103', "<span  class='colorRed'>↑1</span>"],
-          ['4','中联神农高科技有限公司', '102', "<span  class='colorRed'>↑1</span>"],
-          ['4','中联神农高科技有限公司', '102', "<span  class='colorRed'>↑1</span>"],
-          ['5','逊强贸易有限公司', '101', "<span  class='colorGrass'>↓4</span>"],
-          ['6','新余景润服饰有限公司', '99', "<span  class='colorRed'>↑6</span>"],
-          ['7','分宜县龙华金属回收有限公司第二门市部', '98', "<span  class='colorRed'>↑1</span>"],
-          ['8','新余市汇康食品有限公司', '96', "<span  class='colorGrass'>↓3</span>"],
-          ['9','云桉建筑', '96', "<span  class='colorGrass'>↓2</span>"],
-          ['10','江西肆海电子科技有限公司', '93', "<span  class='colorRed'>↑1</span>"]
+          ['1','新余市金车精测电子科技有限公司', '106', "A"],
+          ['2','江西中邦电子科技有限公司', '105', "A"],
+          ['3','江西盛泰精密光学有限公司', '103', "B"],
+          ['4','中联神农高科技有限公司', '102', "B"],
+          ['5','逊强贸易有限公司', '101', "B"],
+          ['6','新余景润服饰有限公司', '99', "B"],
+          ['7','分宜县龙华金属回收有限公司第二门市部', '98', "B"],
+          ['8','新余市汇康食品有限公司', '96', "C"],
+          ['9','云桉建筑', '96', "C"],
+          ['10','江西肆海电子科技有限公司', '93', "C"],
+          ['11','新余市金车精测电子科技有限公司', '106', "C"],
+          ['12','江西中邦电子科技有限公司', '105', "C"],
+          ['13','江西盛泰精密光学有限公司', '103', "C"],
+          ['14','中联神农高科技有限公司', '102', "A"],
+          ['15','中联神农高科技有限公司', '102', "A"],
+          ['16','逊强贸易有限公司', '101', "D"],
+          ['17','新余景润服饰有限公司', '99', "D"],
+          ['18','分宜县龙华金属回收有限公司第二门市部', '98', "D"],
+          ['19','云桉建筑', '96', "D"],
+          ['20','江西肆海电子科技有限公司', '93', "D"],
         ],
     }
   },
@@ -69,8 +77,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$box-height: 410px;
-$box-width: 800px;
+$box-height: 930px;
+$box-width: 760px;
 #centerRight1 {
   padding: 16px;
   padding-top: 20px;
@@ -89,7 +97,7 @@ $box-width: 800px;
     overflow: hidden;
     .dv-scr-board {
       width: 650px;
-      height: 340px;
+      height: 800px;
     }
   }
   .d-flex{

@@ -42,7 +42,6 @@
           />
         </div>
         <div class="credit">
-          <!-- <span class="text mx-2 mb-1 pl-3">企业税务信用</span> -->
           <span class="credit-letter">A</span>
           <div class="credit-text">
            <span class="text mx-2 mb-1 pl-3">企业税务信用</span> 

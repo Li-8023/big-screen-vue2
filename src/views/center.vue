@@ -18,45 +18,23 @@
     <div class="down">
       <div class="ranking bg-color-black">
         <span>
-          <icon name="chart-pie" class="text-icon"></icon>
+         <i class='bx bx-objects-horizontal-left' style="font-size: 20px;"></i>
         </span>
-        <span class="fs-xl text mx-2 mb-1 pl-3">年度负责人组件达标榜</span>
-        <dv-scroll-ranking-board class="dv-scr-rank-board mt-1" :config="ranking" />
-      </div>
-      <div class="percent">
-        <div class="item bg-color-black">
-          <span>今日任务通过率</span>
-          <CenterChart
-            :id="rate[0].id"
-            :tips="rate[0].tips"
-            :colorObj="rate[0].colorData"
-          />
-        </div>
-        <div class="item bg-color-black">
-          <span>今日任务达标率</span>
-          <CenterChart
-            :id="rate[1].id"
-            :tips="rate[1].tips"
-            :colorObj="rate[1].colorData"
-          />
-        </div>
-        <div class="water">
-          <dv-water-level-pond class="dv-wa-le-po" :config="water" />
-        </div>
+        <span class="text mx-2 mb-1 pl-3" style="font-size: 20px;">用电量</span>
+        <dv-scroll-ranking-board class="dv-scr-rank-board mt-2" :config="ranking" style="width:530px"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import CenterChart from '@/components/echart/center/centerChartRate'
 
 export default {
   data() {
     return {
       titleItem: [
         {
-          title: '园区亩均应税收入',
+          title: '总企业数',
           number: {
             number: [120],
             toFixed: 1,
@@ -67,18 +45,6 @@ export default {
             }
           }
         },
-        // {
-        //   title: '园区亩均产值',
-        //   number: {
-        //     number: [18],
-        //     toFixed: 1,
-        //     textAlign: 'left',
-        //     content: '{nt}',
-        //     style: {
-        //       fontSize: 26
-        //     }
-        //   }
-        // },
         {
           title: '园区平均总得分',
           number: {
@@ -92,7 +58,7 @@ export default {
           }
         },
         {
-          title: '安全生产平均得分',
+          title: '总亩均应税收入',
           number: {
             number: [14],
             toFixed: 1,
@@ -104,7 +70,7 @@ export default {
           }
         },
         {
-          title: '环境保护平均得分',
+          title: '亩均税收',
           number: {
             number: [15],
             toFixed: 1,
@@ -116,7 +82,7 @@ export default {
           }
         },
         {
-          title: '园区加分企业数',
+          title: '安全平均得分',
           number: {
             number: [10],
             toFixed: 1,
@@ -128,7 +94,7 @@ export default {
           }
         },
         {
-          title: '园区减分企业数',
+          title: '环保平均得分',
           number: {
             number: [18],
             toFixed: 1,
@@ -143,91 +109,51 @@ export default {
       ranking: {
         data: [
           {
-            name: '周口',
+            name: '新余市金车精测电子科技有限公司',
             value: 55
           },
           {
-            name: '南阳',
+            name: '江西中邦电子科技有限公司',
             value: 120
           },
           {
-            name: '西峡',
+            name: '江西盛泰精密光学有限公司',
             value: 78
           },
           {
-            name: '驻马店',
+            name: '中联神农高科技有限公司',
             value: 66
           },
           {
-            name: '新乡',
+            name: '逊强贸易有限公司',
             value: 80
           },
           {
-            name: '新乡2',
+            name: '新余景润服饰有限公司',
             value: 80
           },
           {
-            name: '新乡3',
+            name: '分宜县龙华金属回收有限公司第二门市部',
             value: 80
           },
           {
-            name: '新乡4',
+            name: '新余市汇康食品有限公司',
             value: 80
           },
           {
-            name: '新乡5',
+            name: '云桉建筑',
             value: 80
           },
           {
-            name: '新乡6',
+            name: '江西肆海电子科技有限公司',
             value: 80
           }
         ],
         carousel: 'single',
-        unit: '人'
+        unit: '千瓦/时'
       },
-      water: {
-        data: [24, 45],
-        shape: 'roundRect',
-        formatter: '{value}%',
-        waveNum: 3
-      },
-      // 通过率和达标率的组件复用数据
-      rate: [
-        {
-          id: 'centerRate1',
-          tips: 60,
-          colorData: {
-            textStyle: '#3fc0fb',
-            series: {
-              color: ['#00bcd44a', 'transparent'],
-              dataColor: {
-                normal: '#03a9f4',
-                shadowColor: '#97e2f5'
-              }
-            }
-          }
-        },
-        {
-          id: 'centerRate2',
-          tips: 40,
-          colorData: {
-            textStyle: '#67e0e3',
-            series: {
-              color: ['#faf3a378', 'transparent'],
-              dataColor: {
-                normal: '#ff9800',
-                shadowColor: '#fcebad'
-              }
-            }
-          }
-        }
-      ]
     }
   },
-  components: {
-    CenterChart
-  }
 }
 </script>
 
@@ -265,9 +191,9 @@ export default {
     }
     .ranking {
       padding: 10px;
-      width: 59%;
+      width: 100%;
       .dv-scr-rank-board {
-        height: 225px;
+        height: 230px;
       }
     }
     .percent {
