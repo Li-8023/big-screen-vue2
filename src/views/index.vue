@@ -34,6 +34,11 @@
                 <!-- <input type="text" v-model="searchQuery" placeholder="请输入公司名称"> -->
                 <select v-model="searchQuery" class="custom-select" style="width:400px; height: 20px;">
                   <option value="">请选择企业类型</option>
+                  <option value="其他">其他</option>
+                  <option value="锂电新能源">锂电新能源</option>
+                  <option value="光电信息">光电信息</option>
+                  <option value="装备制造">装备制造</option>
+                  <option value="麻纺">麻纺</option>
                   <option value="江西盛泰精密光学有限公司">江西盛泰精密光学有限公司</option>
                   <option value="新余市汇康食品有限公司">新余市汇康食品有限公司</option>
                   <option value="中联神农高科技有限公司">中联神农高科技有限公司</option>
@@ -78,7 +83,8 @@
 
             <!-- Map view -->
             <div class="left">
-                <mapView />
+                <!-- <mapView /> -->
+                <img src="../assets/map.png" style="width:550px;height:430px;">
             </div>
             
             <div class="right">
@@ -107,7 +113,7 @@
 import drawMixin from "../utils/drawMixin";
 import { formatTime } from '../utils/index.js'
 // import centerLeft1 from './centerLeft1'
-import mapView from './map.vue'
+// import mapView from './map.vue'
 import centerRight1 from './centerRight1'
 import center from './center'
 import bottomLeft from './bottomLeft'
@@ -131,7 +137,7 @@ export default {
   },
   components: {
     // centerLeft1,
-    mapView,
+    // mapView,
     centerRight1,
     center,
     bottomLeft,

@@ -33,7 +33,8 @@ export default {
                         viewMode: "2D", // 是否为3D地图模式
                         zoom: 17, // 初始化地图级别
                         center: [114.704689, 27.802502], // 初始化地图中心点位置
-                         mapStyle: "amap://styles/grey",
+                        
+                        mapStyle: "amap://styles/grey",
                     });
                     // Adding markers
                     const marker1 = new AMap.Marker({
@@ -43,6 +44,10 @@ export default {
                         title: "分宜",
                     });
                     this.map.add(marker1);
+
+                    
+
+
                 })
                 .catch((e) => {
                     console.log(e);
@@ -56,12 +61,11 @@ $box-height: 410px;
 $box-width: 800px;
 
 #container {
-  padding: 16px;
-  margin-left: 10px;
-  height: $box-height;
-  width: $box-width;
-  border-radius: 10px;
-  border: 5px solid #0e101f;
+    padding: 16px;
+    margin-left: 10px;
+    height: $box-height;
+    width: $box-width;
+    border-radius: 10px;
+    border: 5px solid #0e101f;
 }
 </style>
-
