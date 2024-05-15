@@ -184,9 +184,9 @@ table {
 
   th, td {
     border: 1px solid #0e101f;
-    padding: 30px;
+    padding: 20px;
     text-align: left;
-    font-size: 30px;
+    font-size: 25px;
     background-color: #0e101f;
   }
 

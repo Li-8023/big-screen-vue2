@@ -33,7 +33,7 @@ export default {
                         viewMode: "2D", // 是否为3D地图模式
                         zoom: 17, // 初始化地图级别
                         center: [114.704689, 27.802502], // 初始化地图中心点位置
-                         mapStyle: "amap://styles/grey", //https://lbs.amap.com/api/javascript-api-v2/guide/map/map-style
+                         mapStyle: "amap://styles/grey",
                     });
                     // Adding markers
                     const marker1 = new AMap.Marker({
@@ -52,8 +52,8 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-$box-width: 550px;
-$box-height: 430px;
+$box-height: 410px;
+$box-width: 800px;
 
 #container {
   padding: 16px;

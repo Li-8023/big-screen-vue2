@@ -75,10 +75,10 @@
 
         <div class="body-box">
           <div class="left-part">
+
+            <!-- Map view -->
             <div class="left">
-              <dv-border-box-13>
-                <centerLeft1 />
-              </dv-border-box-13>
+                <mapView />
             </div>
             
             <div class="right">
@@ -106,7 +106,8 @@
 <script>
 import drawMixin from "../utils/drawMixin";
 import { formatTime } from '../utils/index.js'
-import centerLeft1 from './centerLeft1'
+// import centerLeft1 from './centerLeft1'
+import mapView from './map.vue'
 import centerRight1 from './centerRight1'
 import center from './center'
 import bottomLeft from './bottomLeft'
@@ -129,7 +130,8 @@ export default {
     }
   },
   components: {
-    centerLeft1,
+    // centerLeft1,
+    mapView,
     centerRight1,
     center,
     bottomLeft,

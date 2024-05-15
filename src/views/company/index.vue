@@ -78,7 +78,7 @@
             </div>
             <div>
               <dv-border-box-6>
-                <topRight />
+               <mapView />
               </dv-border-box-6>
             </div>
           </div>
@@ -105,7 +105,7 @@ import centerLeft1 from "./centerLeft1";
 import bottomRight from "./bottomRight";
 import center from "./center";
 import bottomLeft from "./bottomLeft";
-import topRight from "./topRight";
+import mapView from "./map.vue"
 
 export default {
   mixins: [drawMixin],
@@ -127,7 +127,7 @@ export default {
     bottomRight,
     center,
     bottomLeft,
-    topRight,
+    mapView,
 
   },
   mounted() {
