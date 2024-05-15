@@ -11,6 +11,11 @@
     event-pubsub "4.3.0"
     js-message "1.0.7"
 
+"@amap/amap-jsapi-loader@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@amap/amap-jsapi-loader/-/amap-jsapi-loader-1.0.1.tgz"
+  integrity sha512-nPyLKt7Ow/ThHLkSvn2etQlUzqxmTVgK7bIgwdBRTg2HK5668oN7xVxkaiRe3YZEzGzfV2XgH5Jmu2T73ljejw==
+
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
   resolved "https://registry.npmmirror.com/@ampproject/remapping/-/remapping-2.2.0.tgz"
@@ -5550,6 +5555,11 @@ launch-editor@^2.2.1, launch-editor@^2.6.0:
   dependencies:
     picocolors "^1.0.0"
     shell-quote "^1.7.3"
+
+leaflet@^1.9.4:
+  version "1.9.4"
+  resolved "https://registry.npmjs.org/leaflet/-/leaflet-1.9.4.tgz"
+  integrity sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==
 
 levn@^0.3.0, levn@~0.3.0:
   version "0.3.0"
