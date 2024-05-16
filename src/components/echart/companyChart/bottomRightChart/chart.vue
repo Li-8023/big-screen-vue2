@@ -106,15 +106,13 @@ export default {
             {
               name: "用电量",
               type: "line",
-              smooth: true,
+              smooth: false,
               showAllSymbol: true,
               symbol: "emptyCircle",
               symbolSize: 8,
               yAxisIndex: 1,
               itemStyle: {
                 normal: {
-                  // color: "#F02FC2"
-                  // color: "#3477a0"
                   color: "#FB9AD1"
                 }
               },
@@ -123,7 +121,7 @@ export default {
              {
               name: "亩均税收",
               type: "line",
-              smooth: true,
+              smooth: false,
               showAllSymbol: true,
               symbol: "emptyCircle",
               symbolSize: 8,

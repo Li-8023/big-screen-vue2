@@ -4,7 +4,7 @@
     <Echart
       :options="options"
       id="bottomLeftChart"
-      height="480px"
+      height="460px"
       width="100%"
     ></Echart>
   </div>
@@ -12,6 +12,7 @@
 
 <script>
 import Echart from "@/common/echart";
+
 export default {
   data() {
     return {
@@ -33,7 +34,7 @@ export default {
         this.options = {
           tooltip: {
             trigger: "axis",
-            backgroundColor: "rgba(255,255,255,0.1)",
+            backgroundColor: "#1f1f1f",
             axisPointer: {
               type: "shadow",
               label: {
@@ -43,45 +44,50 @@ export default {
             },
           },
           legend: {
-            data: ["园区总税收", "总应税收入", "规上企业数"],
             textStyle: {
-              color: "#B4B4B4",
-              fontSize: 20,
+              fontSize: 16,
             },
-            top: "0%",
           },
           grid: {
-            x: "8%",
-            width: "88%",
-            y: "4%",
+            left: "3%",
+            right: "4%",
+            bottom: "3%",
+            containLabel: true,
           },
-          xAxis: {
-            data: newData.category,
-            axisLine: {
-              lineStyle: {
-                color: "#B4B4B4",
+          xAxis: [
+            {
+              type: "category",
+              data: newData.category,
+              axisLine: {
+                lineStyle: {
+                  color: "#B4B4B4",
+                },
+              },
+              axisTick: {
+                show: false,
+              },
+              axisLabel: {
+                textStyle: {
+                  fontSize: 16,
+                },
               },
             },
-            axisTick: {
-              show: false,
-            },
-            axisLabel: {
-              textStyle: {
-                fontSize: 16, 
-              },
-            },
-          },
+          ],
           yAxis: [
             {
-              splitLine: { show: false },
+              type: "value",
+              axisLabel: {
+                textStyle: {
+                  fontSize: 16,
+                },
+              },
+              splitLine: {
+                show: false,
+              },
               axisLine: {
                 lineStyle: {
                   color: "#B4B4B4",
                 },
-              },
-
-              axisLabel: {
-                formatter: "{value} ",
               },
             },
             {
@@ -93,57 +99,88 @@ export default {
               },
               axisLabel: {
                 formatter: "{value} ",
-                textStyle: {
-                  fontSize: 16, 
-                },
               },
             },
           ],
           series: [
             {
-              name: "规上企业数",
-              type: "line",
-              smooth: true,
-              showAllSymbol: true,
-              symbol: "emptyCircle",
-              symbolSize: 8,
-              yAxisIndex: 1,
+              name: "园区总税收一季度",
+              type: "bar",
+              stack: "Ad",
+              barWidth: 40,
+              emphasis: {
+                focus: "series",
+              },
               itemStyle: {
                 normal: {
-                  color: "#FB9AD1",
+                  color: "#b91a07",
+                },
+              },
+              data: newData.lineData,
+            },
+            {
+              name: "园区总税收二季度",
+              type: "bar",
+              stack: "Ad",
+              barWidth: 40,
+              emphasis: {
+                focus: "series",
+              },
+              itemStyle: {
+                normal: {
+                  color: "#e7461c",
                 },
               },
               data: newData.rateData,
             },
             {
-              name: "总应税收入",
-              type: "line",
-              smooth: true,
-              showAllSymbol: true,
-              symbol: "emptyCircle",
-              symbolSize: 8,
-              yAxisIndex: 1,
+              name: "园区总税收三季度",
+              type: "bar",
+              stack: "Ad",
+              barWidth: 40,
+              emphasis: {
+                focus: "series",
+              },
               itemStyle: {
                 normal: {
-                  color: "#3477a0",
+                  color: "#e77a5b",
                 },
               },
               data: newData.barData,
             },
             {
-              name: "园区总税收",
+              name: "园区总税收四季度",
+              type: "bar",
+              stack: "Ad",
+              barWidth: 40,
+              emphasis: {
+                focus: "series",
+              },
+              itemStyle: {
+                normal: {
+                  color: "#f6ab98",
+                },
+              },
+              data: newData.forthData,
+            },
+
+            {
+              name: "同比增长速度",
               type: "line",
-              smooth: true,
               showAllSymbol: true,
               symbol: "emptyCircle",
               symbolSize: 8,
+              smooth: false,
               yAxisIndex: 1,
+              emphasis: {
+                focus: "series",
+              },
               itemStyle: {
                 normal: {
-                  color: "#F02FC2",
+                  color: "#cccccc",
                 },
               },
-              data: newData.lineData,
+              data: newData.lineChartData,
             },
           ],
         };
