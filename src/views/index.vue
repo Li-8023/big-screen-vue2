@@ -31,38 +31,56 @@
               <span class="react-left"></span>
               <span class="text">
                 <dv-border-box-8>
-                <!-- <input type="text" v-model="searchQuery" placeholder="请输入公司名称"> -->
-                <select v-model="searchQuery" class="custom-select" style="width:400px; height: 20px;">
-                  <option value="">请选择企业类型</option>
-                  <option value="其他">其他</option>
-                  <option value="锂电新能源">锂电新能源</option>
-                  <option value="光电信息">光电信息</option>
-                  <option value="装备制造">装备制造</option>
-                  <option value="麻纺">麻纺</option>
-                  <option value="江西盛泰精密光学有限公司">江西盛泰精密光学有限公司</option>
-                  <option value="新余市汇康食品有限公司">新余市汇康食品有限公司</option>
-                  <option value="中联神农高科技有限公司">中联神农高科技有限公司</option>
-                  <option value="新余景润服饰有限公司">新余景润服饰有限公司</option>
-                  <!-- <option v-for="item in companyOptions" :key="item.id" :value="item.name">{{ item.name }}</option> -->
-                </select>
+                  <!-- <input type="text" v-model="searchQuery" placeholder="请输入公司名称"> -->
+                  <select
+                    v-model="searchQuery"
+                    class="custom-select"
+                    style="width: 400px; height: 20px"
+                  >
+                    <option value="">请选择企业类型</option>
+                    <option value="其他">其他</option>
+                    <option value="锂电新能源">锂电新能源</option>
+                    <option value="光电信息">光电信息</option>
+                    <option value="装备制造">装备制造</option>
+                    <option value="麻纺">麻纺</option>
+                    <option value="江西盛泰精密光学有限公司">
+                      江西盛泰精密光学有限公司
+                    </option>
+                    <option value="新余市汇康食品有限公司">
+                      新余市汇康食品有限公司
+                    </option>
+                    <option value="中联神农高科技有限公司">
+                      中联神农高科技有限公司
+                    </option>
+                    <option value="新余景润服饰有限公司">
+                      新余景润服饰有限公司
+                    </option>
+                    <!-- <option v-for="item in companyOptions" :key="item.id" :value="item.name">{{ item.name }}</option> -->
+                  </select>
                 </dv-border-box-8>
               </span>
-              
             </div>
             <div class="react-left ml-3">
-              <dv-decoration-4 :reverse="true" style="width:250px;height:5px;" />
-              <span v-if="!editMode" class="text sub-title" @click="toggleEditMode">
-              企业数据展示
-              
+              <dv-decoration-4
+                :reverse="true"
+                style="width: 250px; height: 5px"
+              />
+              <span
+                v-if="!editMode"
+                class="text sub-title"
+                @click="toggleEditMode"
+              >
+                企业数据展示
               </span>
-                <input 
-                  v-else 
-                  type="text" 
-                  v-model="companyName" 
-                  @blur="toggleEditMode" 
-                  @keyup.enter="handleEnter" 
-                  class="input-field text" 
-                  placeholder="请输入公司名称">
+              <input
+                v-else
+                type="text"
+                v-model="companyName"
+                @blur="toggleEditMode"
+                @keyup.enter="handleEnter"
+                class="input-field text"
+                placeholder="请输入公司名称"
+              />
             </div>
           </div>
           <div class="d-flex aside-width">
@@ -80,29 +98,43 @@
 
         <div class="body-box">
           <div class="left-part">
-
             <!-- Map view -->
             <div class="left">
-                <!-- <mapView /> -->
-                <img src="../assets/map.png" style="width:550px;height:430px;">
+              <!-- <mapView /> -->
+              <img
+                src="../assets/map.png"
+                style="width: 550px; height: 430px"
+              />
             </div>
-            
+
             <div class="right">
               <center />
             </div>
             <div class="bottom">
-               <dv-border-box-13>
-              <bottomLeft />
-            </dv-border-box-13>
+              <dv-border-box-13>
+                <!-- <bottomLeft /> -->
+                <div class="chart-container">
+                  <button @click="prevChart" class="toggle-chart-btn left-btn">
+                    <i class="bx bxs-chevrons-left" style="color: #ffff; font-size: 40px;"></i>
+                  </button>
+                  <div class="chart-content">
+                    <bottomLeft v-if="currentChart === 0" />
+                    <centerRight2 v-else-if="currentChart === 1" />
+                    <mapView v-else />
+                  </div>
+                  <button @click="nextChart" class="toggle-chart-btn right-btn">
+                    <i class="bx bxs-chevrons-right" style="color: #ffff; font-size: 40px;"></i>
+                  </button>
+                </div>
+              </dv-border-box-13>
             </div>
           </div>
 
-          <div class="right-part">     
-              <dv-border-box-8>
-                <centerRight1 :search-query="searchQuery"/>
-              </dv-border-box-8>
+          <div class="right-part">
+            <dv-border-box-8>
+              <centerRight1 :search-query="searchQuery" />
+            </dv-border-box-8>
           </div>
-          
         </div>
       </div>
     </div>
@@ -111,16 +143,16 @@
 
 <script>
 import drawMixin from "../utils/drawMixin";
-import { formatTime } from '../utils/index.js'
+import { formatTime } from "../utils/index.js";
 // import centerLeft1 from './centerLeft1'
-// import mapView from './map.vue'
-import centerRight1 from './centerRight1'
-import center from './center'
-import bottomLeft from './bottomLeft'
-
+import mapView from "./map.vue";
+import centerRight1 from "./centerRight1";
+import centerRight2 from "./centerRight2";
+import center from "./center";
+import bottomLeft from "./bottomLeft";
 
 export default {
-  mixins: [ drawMixin ],
+  mixins: [drawMixin],
   data() {
     return {
       timing: null,
@@ -128,62 +160,69 @@ export default {
       dateDay: null,
       dateYear: null,
       dateWeek: null,
-      weekday: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
-      decorationColor: ['#568aea', '#000000'],
-      searchQuery:'',
+      weekday: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+      decorationColor: ["#568aea", "#000000"],
+      searchQuery: "",
       editMode: false,
-      companyName:''
-    }
+      companyName: "",
+      currentChart: 0,
+    };
   },
   components: {
     // centerLeft1,
-    // mapView,
+    mapView,
     centerRight1,
     center,
     bottomLeft,
+    centerRight2,
   },
   mounted() {
-    this.timeFn()
-    this.cancelLoading()
+    this.timeFn();
+    this.cancelLoading();
   },
-  beforeDestroy () {
-    clearInterval(this.timing)
+  beforeDestroy() {
+    clearInterval(this.timing);
   },
   methods: {
-     toggleEditMode() {
-      this.editMode = !this.editMode; 
+    toggleEditMode() {
+      this.editMode = !this.editMode;
     },
     handleEnter(event) {
-    if (event.key === "Enter") {
-      this.toggleEditMode();  
-      this.$router.push('/detail');
-     
-    }
-  },
+      if (event.key === "Enter") {
+        this.toggleEditMode();
+        this.$router.push("/detail");
+      }
+    },
+    nextChart() {
+      this.currentChart = (this.currentChart + 1) % 3;
+    },
+    prevChart() {
+      this.currentChart = (this.currentChart + 2) % 3;
+    },
     timeFn() {
       this.timing = setInterval(() => {
-        this.dateDay = formatTime(new Date(), 'HH: mm: ss')
-        this.dateYear = formatTime(new Date(), 'yyyy-MM-dd')
-        this.dateWeek = this.weekday[new Date().getDay()]
-      }, 1000)
+        this.dateDay = formatTime(new Date(), "HH: mm: ss");
+        this.dateYear = formatTime(new Date(), "yyyy-MM-dd");
+        this.dateWeek = this.weekday[new Date().getDay()];
+      }, 1000);
     },
     cancelLoading() {
       setTimeout(() => {
-        this.loading = false
-      }, 500)
-    }
-  }
-}
+        this.loading = false;
+      }, 500);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/scss/page1.scss';
+@import "../assets/scss/page1.scss";
 
-.sub-title{
+.sub-title {
   cursor: pointer;
 }
 
-.custom-select:focus{
+.custom-select:focus {
   outline: none;
 }
 .custom-select {
@@ -191,14 +230,13 @@ export default {
   font-family: Arial;
 }
 
-.custom-select{
+.custom-select {
   background-color: #0f1325;
   color: white;
   cursor: pointer;
   font-size: 13px;
   border: 1px solid #0f1325;
   box-shadow: none; /* Default no shadow */
-  
 }
 
 .select-selected {
@@ -213,5 +251,32 @@ export default {
   border: 1px solid #0f1325;
   box-shadow: none; /* Default no shadow */
 }
+.chart-container {
+  position: relative;
+}
+
+.chart-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-chart-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.toggle-chart-btn.left-btn {
+  left: 10;
+}
+
+.toggle-chart-btn.right-btn {
+  right: 0;
+}
+
 
 </style>
