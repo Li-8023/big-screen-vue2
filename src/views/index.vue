@@ -112,27 +112,17 @@
             </div>
             <div class="bottom">
               <dv-border-box-13>
-                <!-- <bottomLeft /> -->
-                <div class="chart-container">
-                  <button @click="prevChart" class="toggle-chart-btn left-btn">
-                    <i class="bx bxs-chevrons-left" style="color: #ffff; font-size: 40px;"></i>
-                  </button>
-                  <div class="chart-content">
-                    <bottomLeft v-if="currentChart === 0" />
-                    <centerRight2 v-else-if="currentChart === 1" />
-                    <mapView v-else />
-                  </div>
-                  <button @click="nextChart" class="toggle-chart-btn right-btn">
-                    <i class="bx bxs-chevrons-right" style="color: #ffff; font-size: 40px;"></i>
-                  </button>
-                </div>
+                <bottomLeft :modal-active="modalActive" />
               </dv-border-box-13>
             </div>
           </div>
 
           <div class="right-part">
             <dv-border-box-8>
-              <centerRight1 :search-query="searchQuery" />
+              <centerRight1
+                :search-query="searchQuery"
+                @modal-status-changed="handleModalStatus"
+              />
             </dv-border-box-8>
           </div>
         </div>
@@ -145,9 +135,8 @@
 import drawMixin from "../utils/drawMixin";
 import { formatTime } from "../utils/index.js";
 // import centerLeft1 from './centerLeft1'
-import mapView from "./map.vue";
+// import mapView from './map.vue'
 import centerRight1 from "./centerRight1";
-import centerRight2 from "./centerRight2";
 import center from "./center";
 import bottomLeft from "./bottomLeft";
 
@@ -165,16 +154,15 @@ export default {
       searchQuery: "",
       editMode: false,
       companyName: "",
-      currentChart: 0,
+      modalActive: false,
     };
   },
   components: {
     // centerLeft1,
-    mapView,
+    // mapView,
     centerRight1,
     center,
     bottomLeft,
-    centerRight2,
   },
   mounted() {
     this.timeFn();
@@ -193,11 +181,8 @@ export default {
         this.$router.push("/detail");
       }
     },
-    nextChart() {
-      this.currentChart = (this.currentChart + 1) % 3;
-    },
-    prevChart() {
-      this.currentChart = (this.currentChart + 2) % 3;
+    handleModalStatus(status){
+      this.modalActive = status;
     },
     timeFn() {
       this.timing = setInterval(() => {
@@ -251,32 +236,4 @@ export default {
   border: 1px solid #0f1325;
   box-shadow: none; /* Default no shadow */
 }
-.chart-container {
-  position: relative;
-}
-
-.chart-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.toggle-chart-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.toggle-chart-btn.left-btn {
-  left: 10;
-}
-
-.toggle-chart-btn.right-btn {
-  right: 0;
-}
-
-
 </style>
