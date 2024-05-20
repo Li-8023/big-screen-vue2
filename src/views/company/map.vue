@@ -58,7 +58,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 $box-height: 410px;
-$box-width: 800px;
+$box-width: 500px;
 
 #container {
     padding: 16px;

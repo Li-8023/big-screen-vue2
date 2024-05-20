@@ -41,7 +41,7 @@ export default {
             textAlign: 'left',
             content: '{nt}',
             style: {
-              fontSize: 26
+              fontSize: 24
             }
           }
         },
@@ -53,31 +53,31 @@ export default {
             textAlign: 'left',
             content: '{nt}',
             style: {
-              fontSize: 26
+              fontSize: 24
             }
           }
         },
         {
-          title: '总亩均应税收入',
+          title: '总应税收入',
           number: {
             number: [14],
             toFixed: 1,
             textAlign: 'left',
             content: '{nt}',
             style: {
-              fontSize: 26
+              fontSize: 24
             }
           }
         },
         {
-          title: '亩均税收',
+          title: '总税收',
           number: {
             number: [15],
             toFixed: 1,
             textAlign: 'left',
             content: '{nt}',
             style: {
-              fontSize: 26
+              fontSize: 24
             }
           }
         },
@@ -89,7 +89,7 @@ export default {
             textAlign: 'left',
             content: '{nt}',
             style: {
-              fontSize: 26
+              fontSize: 24
             }
           }
         },
@@ -101,12 +101,49 @@ export default {
             textAlign: 'left',
             content: '{nt}',
             style: {
-              fontSize: 26
+              fontSize: 24
+            }
+          }
+        },
+        {
+          title: '总用电量',
+          number: {
+            number: [3000],
+            toFixed: 1,
+            textAlign: 'left',
+            content: '{nt}',
+            style: {
+              fontSize: 24
+            }
+          }
+        },
+        {
+          title: '规上企业数',
+          number: {
+            number: [54],
+            toFixed: 1,
+            textAlign: 'left',
+            content: '{nt}',
+            style: {
+              fontSize: 24
+            }
+          }
+        },
+        {
+          title: '规下企业数',
+          number: {
+            number: [31],
+            toFixed: 1,
+            textAlign: 'left',
+            content: '{nt}',
+            style: {
+              fontSize: 24
             }
           }
         },
       ],
       ranking: {
+        rowNum: 4,
         data: [
           {
             name: '新余市金车精测电子科技有限公司',
@@ -172,7 +209,7 @@ export default {
       padding-top: 8px;
       margin-top: 8px;
       width: 32%;
-      height: 70px;
+      height: 60px;
       .dv-dig-flop {
         width: 150px;
         height: 30px;
@@ -193,7 +230,7 @@ export default {
       padding: 10px;
       width: 100%;
       .dv-scr-rank-board {
-        height: 230px;
+        height: 200px;
       }
     }
     .percent {

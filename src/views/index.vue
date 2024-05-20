@@ -38,23 +38,11 @@
                     style="width: 400px; height: 20px"
                   >
                     <option value="">请选择企业类型</option>
-                    <option value="其他">其他</option>
                     <option value="锂电新能源">锂电新能源</option>
                     <option value="光电信息">光电信息</option>
                     <option value="装备制造">装备制造</option>
                     <option value="麻纺">麻纺</option>
-                    <option value="江西盛泰精密光学有限公司">
-                      江西盛泰精密光学有限公司
-                    </option>
-                    <option value="新余市汇康食品有限公司">
-                      新余市汇康食品有限公司
-                    </option>
-                    <option value="中联神农高科技有限公司">
-                      中联神农高科技有限公司
-                    </option>
-                    <option value="新余景润服饰有限公司">
-                      新余景润服饰有限公司
-                    </option>
+                    <option value="其他">其他</option>
                     <!-- <option v-for="item in companyOptions" :key="item.id" :value="item.name">{{ item.name }}</option> -->
                   </select>
                 </dv-border-box-8>
