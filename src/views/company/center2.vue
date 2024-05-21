@@ -8,7 +8,7 @@
       >
         <p class="ml-3 fw-b"  style="font-size: 16px; color: #459bcc;">
           {{ item.title }}
-           <!-- <i class='bx bx-expand-alt bx-tada bx-rotate-90 expand-icon' style="font-size: 20px;" @click="showFormula(item)"></i> -->
+           <i class='bx bx-expand-alt bx-tada bx-rotate-90 expand-icon' style="font-size: 20px;" @click="showFormula(item)"></i>
         </p>
         <div>
           <dv-digital-flop
@@ -21,17 +21,17 @@
     <div class="down">
       <div class="percent">
         <div class="score">
-          <span class="credit-letter">13</span>
+          <span class="credit-letter">95</span>
           <div class="score-text">
-           <span class="text mx-2 mb-1 pl-3">总排名</span> 
+           <span class="text mx-2 mb-1 pl-3">总得分</span> 
           </div>
         </div>
       </div>
       <div class="percent">
         <div class="credit">
-          <span class="credit-letter">3</span>
+          <span class="credit-letter">A</span>
           <div class="credit-text">
-           <span class="text mx-2 mb-1 pl-3">行业排名</span> 
+           <span class="text mx-2 mb-1 pl-3">评级类别</span> 
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@ export default {
       selectedFormula: '',
       titleItem: [
         {
-          title: "应税收入",
+          title: "亩均应税收入",
           number: {
             number: [120],
             toFixed: 1,
@@ -68,7 +68,7 @@ export default {
           },
         },
         {
-          title: "税收",
+          title: "亩均税收",
           number: {
             number: [80],
             toFixed: 1,
@@ -80,7 +80,7 @@ export default {
           },
         },
         {
-          title: "用电量",
+          title: "安全得分",
           number: {
             number: [14],
             toFixed: 1,
@@ -92,7 +92,7 @@ export default {
           },
         },
         {
-          title: "亩均应税收入",
+          title: "环保得分",
           number: {
             number: [15],
             toFixed: 1,
@@ -104,7 +104,7 @@ export default {
           },
         },
         {
-          title: "亩均税收",
+          title: "加分",
           number: {
             number: [10],
             toFixed: 1,
@@ -116,19 +116,7 @@ export default {
           },
         },
         {
-          title: "企业信用",
-          number: {
-            number: [18],
-            toFixed: 1,
-            textAlign: "left",
-            content: "{nt}",
-            style: {
-              fontSize: 26,
-            },
-          },
-        },
-        {
-          title: "员工工资",
+          title: "减分",
           number: {
             number: [18],
             toFixed: 1,
@@ -142,12 +130,12 @@ export default {
       ],
     };
   },
-  // methods:{
-  //   showFormula(item){
-  //     this.selectedFormula = `计算 ${item.title} 的公式是...`;
-  //     this.showModal = true;
-  //   }
-  // }
+  methods:{
+    showFormula(item){
+      this.selectedFormula = `计算 ${item.title} 的公式是...`;
+      this.showModal = true;
+    }
+  }
 };
 </script>
 
@@ -160,7 +148,7 @@ export default {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     .item {
       border-radius: 6px;
       padding-top: 8px;
@@ -168,7 +156,7 @@ export default {
       width: 33%;
       height: 70px;
       .dv-dig-flop {
-        width: 150px;
+        width: 200px;
         height: 30px;
       }
     }
@@ -209,23 +197,25 @@ export default {
       }
       .credit {
         width: 100%;
-        margin-top: 60px;
+        
+        margin-top: 130px;
       }
       .credit-letter{
-        margin-left: 30px;
+        margin-left: 50px;
         color: #ffd700; 
         font-size: 160px; 
         text-shadow: 3px 3px 5px rgba(89, 222, 59, 0.888); 
       }
       .credit-text{
-        margin-left: 25px;
+        margin-left: 40px;
         margin-top: 20px;
         font-size: 20px;
       }
 
        .score {
         width: 100%;
-        margin-top: 60px;
+        
+        margin-top:130px;
       }
       .score-text{
         margin-left: 70px;

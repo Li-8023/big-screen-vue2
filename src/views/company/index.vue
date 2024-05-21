@@ -8,7 +8,7 @@
           <div class="d-flex jc-center">
             <dv-decoration-8 class="dv-dec-8" :color="decorationColor" />
             <div class="title">
-              <span class="title-text">企业信息展示</span>
+              <span class="title-text">新余市金车精测电子科技有限公司</span>
               <dv-decoration-6
                 class="dv-dec-6"
                 :reverse="true"
@@ -31,20 +31,27 @@
               <span class="react-left"></span>
               <span class="text"></span>
             </div>
-             <div class="react-left ml-3">
-              <dv-decoration-4 :reverse="true" style="width:250px;height:5px;" />
-              <span v-if="!editMode" class="text sub-title" @click="toggleEditMode">
-              企业数据展示
-              
+            <div class="react-left ml-3">
+              <dv-decoration-4
+                :reverse="true"
+                style="width: 250px; height: 5px"
+              />
+              <span
+                v-if="!editMode"
+                class="text sub-title"
+                @click="toggleEditMode"
+              >
+                企业数据展示
               </span>
-                <input 
-                  v-else 
-                  type="text" 
-                  v-model="companyName" 
-                  @blur="toggleEditMode" 
-                  @keyup.enter="handleEnter" 
-                  class="input-field text" 
-                  placeholder="请输入公司名称">
+              <input
+                v-else
+                type="text"
+                v-model="companyName"
+                @blur="toggleEditMode"
+                @keyup.enter="handleEnter"
+                class="input-field text"
+                placeholder="请输入公司名称"
+              />
             </div>
           </div>
           <div class="d-flex aside-width">
@@ -56,9 +63,7 @@
               <span class="text"
                 >{{ dateYear }} {{ dateWeek }} {{ dateDay }}
                 <span class="icon" @click="gotoMain">
-                  <i
-                    class="bx bx-power-off"
-                  ></i>
+                  <i class="bx bx-power-off"></i>
                 </span>
               </span>
             </div>
@@ -74,11 +79,18 @@
               </dv-border-box-6>
             </div>
             <div>
-              <center />
+              <dv-border-box-8>
+                <center />
+              </dv-border-box-8>
+            </div>
+            <div>
+              <dv-border-box-8>
+                <center2 />
+              </dv-border-box-8>
             </div>
             <div>
               <dv-border-box-6>
-               <mapView />
+                <mapView />
               </dv-border-box-6>
             </div>
           </div>
@@ -103,9 +115,10 @@ import drawMixin from "../../utils/drawMixin";
 import { formatTime } from "../../utils/index.js";
 import centerLeft1 from "./centerLeft1";
 import bottomRight from "./bottomRight";
+import center2 from "./center2";
 import center from "./center";
 import bottomLeft from "./bottomLeft";
-import mapView from "./map.vue"
+import mapView from "./map.vue";
 
 export default {
   mixins: [drawMixin],
@@ -118,17 +131,17 @@ export default {
       dateWeek: null,
       weekday: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
       decorationColor: ["#568aea", "#000000"],
-      companyName:'',
-      editMode: false
+      companyName: "",
+      editMode: false,
     };
   },
   components: {
     centerLeft1,
     bottomRight,
     center,
+    center2,
     bottomLeft,
     mapView,
-
   },
   mounted() {
     this.timeFn();
@@ -139,17 +152,16 @@ export default {
   },
   methods: {
     toggleEditMode() {
-      this.editMode = !this.editMode;  
+      this.editMode = !this.editMode;
     },
     handleEnter(event) {
-    if (event.key === "Enter") {
-      this.toggleEditMode();  
-      this.$router.push('/');
-
-    }
-  },
-    gotoMain(){
-       this.$router.push('/');
+      if (event.key === "Enter") {
+        this.toggleEditMode();
+        this.$router.push("/");
+      }
+    },
+    gotoMain() {
+      this.$router.push("/");
     },
     timeFn() {
       this.timing = setInterval(() => {
@@ -168,17 +180,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.bx-power-off{
+.bx-power-off {
   padding: 10px;
 }
+
 @import "../../assets/scss/index.scss";
+
 .input-field {
   background-color: #0f1325;
   color: white;
   cursor: pointer;
   font-size: 18px;
   border: 1px solid #0f1325;
-  box-shadow: none; /* Default no shadow */
+  box-shadow: none;
+  /* Default no shadow */
 }
-
 </style>
