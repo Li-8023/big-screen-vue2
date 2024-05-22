@@ -8,7 +8,6 @@
       >
         <p class="ml-3 fw-b"  style="font-size: 16px; color: #459bcc;">
           {{ item.title }}
-           <!-- <i class='bx bx-expand-alt bx-tada bx-rotate-90 expand-icon' style="font-size: 20px;" @click="showFormula(item)"></i> -->
         </p>
         <div>
           <dv-digital-flop
@@ -118,24 +117,24 @@ export default {
         {
           title: "企业信用",
           number: {
-            number: [18],
+            number: [],
             toFixed: 1,
             textAlign: "left",
-            content: "{nt}",
+            content: "有逾期记录{nt}",
             style: {
-              fontSize: 26,
+              fontSize: 20,
             },
           },
         },
         {
           title: "员工工资",
           number: {
-            number: [18],
+            number: [],
             toFixed: 1,
             textAlign: "left",
-            content: "{nt}",
+            content: "正常发放{nt}",
             style: {
-              fontSize: 26,
+              fontSize: 20,
             },
           },
         },
