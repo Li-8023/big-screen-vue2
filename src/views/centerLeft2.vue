@@ -17,6 +17,7 @@
   </div>
 </template>
 
+
 <script>
 import CenterLeft2Chart from "@/components/echart/centerLeft/centerLeft2Chart";
 export default {
